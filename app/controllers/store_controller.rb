@@ -1,3 +1,5 @@
+#!/bin/env ruby
+# encoding: utf-8
 class StoreController < ApplicationController
 
   def storefront
@@ -23,7 +25,8 @@ class StoreController < ApplicationController
   
   end
   def search
-  	@results = User.amazon_lookup("anything In return toro y moi")
+  	
+  	@results = User.amazon_lookup("Era Extraña Neon Indian vinyl")
   	render :json => @results
   end 
 end

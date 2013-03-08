@@ -1,3 +1,5 @@
+#!/bin/env ruby
+# encoding: utf-8
 
 class User < ActiveRecord::Base
 
@@ -46,7 +48,6 @@ class User < ActiveRecord::Base
 	end
 
 	def self.amazon_lookup(album)
-		album = album.force_encoding(Encoding.locale_charmap).encode('UTF-8')
 		client = A2z::Client.new(key: AMZN_KEY, secret: AMZN_SECRET, tag: AMZN_TAG)
 		response = client.item_search do
              category 'Music'

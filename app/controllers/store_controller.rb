@@ -26,7 +26,7 @@ class StoreController < ApplicationController
   end
   def search
   	
-  	@results = User.amazon_lookup("Era Extraña Neon Indian vinyl")
+  	@results = User.amazon_lookup("Era Extraña Neon Indian")
   	render :json => @results
   end 
 end

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VinylApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container-fluid">
+	<div id="header"
+	 <% if current_user %>
+            <p class="navbar-text pull-right">
+              Logged in as <%= current_user.name %>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/signout" class="navbar-link">Sign out</a>
+            </p>
+     <% end %>
+ 	</div>
+<%= yield %>
+</div>
+</body>
+</html>

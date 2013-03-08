@@ -1,0 +1,238 @@
+<script src="/assets/jquery.js"></script>
+
+
+<h1>A Vinyl Store, For You</h1>
+<h2>A place to find and buy vynil records from your favorite artists.</h2>
+    <% if current_user %>        
+
+          <p style="font-size:42px; line-height:50px;">Thanks, you're in. Now visit your Vinyl Store.</p>
+          <br>
+          <%= link_to "Take Me There", "/store", class: "btn btn-info btn-large" %>
+          
+
+        <% else %>
+        <br>
+          <%= link_to "Sign In With Rdio", "/auth/rdio", class: "btn btn-primary btn-large" %>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button class="btn btn-large" id="browse_button" type="button">Browse Some Records</button>
+
+        <% end %>
+
+<table id="browse" class="table">
+<tr>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/Solo-Piano-II-Chilly-Gonzales/dp/B008MQKTAA%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008MQKTAA">
+		<img id="album_img" src="http://cdn3.rd.io/album/7/4/a/00000000001b7a47/3/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		Solo Piano II
+		</div>
+		<div id ="artist_name">
+		Gonzales	
+		</div>
+		</a>
+	</td>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/Anything-In-Return-LP-MP3/dp/B009T44OJQ%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009T44OJQ">
+		<img id="album_img" src="http://cdn3.rd.io/album/e/9/8/000000000025a89e/4/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		Anything In Return
+		</div>
+		<div id ="artist_name">
+		Toro Y Moi	
+		</div>
+		</a>
+	</td>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/Lonesome-Dreams-Lord-Huron/dp/B0091V6SK0%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0091V6SK0">
+		<img id="album_img" src="http://cdn3.rd.io/album/e/2/2/00000000001e822e/2/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		Lonesome Dreams
+		</div>
+		<div id ="artist_name">
+		Lord Huron	
+		</div>
+		</a>
+	</td>
+</tr>
+<tr>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/For-Emma-Forever-Ago-Vinyl/dp/B0011NVCSO%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0011NVCSO">
+		<img id="album_img" src="http://cdn3.rd.io/album/d/f/5/000000000001d5fd/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		For Emma, Forever Ago
+		</div>
+		<div id ="artist_name">
+		Bon Iver	
+		</div>
+		</a>
+	</td>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/no-world-Inc/dp/B00AJOOZ08%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00AJOOZ08">
+		<img id="album_img" src="http://cdn3.rd.io/album/3/a/6/00000000002816a3/1/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		no world
+		</div>
+		<div id ="artist_name">
+		Inc.	
+		</div>
+		</a>
+	</td>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/Lonerism-Tame-Impala/dp/B008XNPO20%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008XNPO20">
+		<img id="album_img" src="http://cdn3.rd.io/album/7/0/3/00000000001d9307/4/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		Lonerism
+		</div>
+		<div id ="artist_name">
+		Tame Impala	
+		</div>
+		</a>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/Beasts-Southern-Wild-Original-Score/dp/B009VTAI1W%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009VTAI1W">
+		<img id="album_img" src="http://cdn3.rd.io/album/2/8/3/000000000019a382/1/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		Beasts of the Southern Wild (Music from the Motion Picture)
+		</div>
+		<div id ="artist_name">
+		Dan Romer	
+		</div>
+		</a>
+	</td>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/In-Rainbows-Vinyl-Radiohead/dp/B000YXMMAO%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000YXMMAO">
+		<img id="album_img" src="http://cdn3.rd.io/album/5/a/3/00000000000e33a5/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		In Rainbows
+		</div>
+		<div id ="artist_name">
+		Radiohead	
+		</div>
+		</a>
+	</td>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/Glow-Kaki-King/dp/B00914ESHC%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00914ESHC">
+		<img id="album_img" src="http://cdn3.rd.io/album/0/0/e/00000000001d3e00/1/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		Glow
+		</div>
+		<div id ="artist_name">
+		Kaki King	
+		</div>
+		</a>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/Solo-Piano-II-Chilly-Gonzales/dp/B008MQKTAA%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008MQKTAA">
+		<img id="album_img" src="http://cdn3.rd.io/album/3/a/6/00000000000176a3/1/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		Solo Piano
+		</div>
+		<div id ="artist_name">
+		Gonzales	
+		</div>
+		</a>
+	</td>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/Waiting-Room-Lusine/dp/B00AANGI30%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00AANGI30">
+		<img id="album_img" src="http://cdn3.rd.io/album/4/4/3/0000000000267344/2/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		The Waiting Room
+		</div>
+		<div id ="artist_name">
+		Lusine	
+		</div>
+		</a>
+	</td>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/December-Piano-Solos-Vinyl-LP/dp/B003NX61YK%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003NX61YK">
+		<img id="album_img" src="http://cdn3.rd.io/album/3/c/7/000000000009d7c3/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		December
+		</div>
+		<div id ="artist_name">
+		George Winston	
+		</div>
+		</a>
+	</td>
+	</tr>
+
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/SBTRKT/dp/B004Y6CV1M%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004Y6CV1M">
+		<img id="album_img" src="http://cdn3.rd.io/album/9/5/2/00000000000c8259/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		SBTRKT
+		</div>
+		<div id ="artist_name">
+		SBTRKT	
+		</div>
+		</a>
+	</td>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/Hummingbird-Local-Natives/dp/B00ABIU4UM%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00ABIU4UM">
+		<img id="album_img" src="http://cdn3.rd.io/album/a/6/a/0000000000266a6a/2/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		Hummingbird
+		</div>
+		<div id ="artist_name">
+		Local Natives	
+		</div>
+		</a>
+	</td>
+	<td>
+		<a target = "_blank" href="http://www.amazon.com/Hurry-Up-Were-Dreaming-m83/dp/B005HS00P0%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB005HS00P0">
+		<img id="album_img" src="http://cdn3.rd.io/album/6/b/3/00000000000fd3b6/square-200.jpg" width="200px">
+		<img id="record_img" src="/assets/vinyl-record.png">
+		<br>
+		<div id="album_name">
+		Hurry Up We&#x27;re Dreaming
+		</div>
+		<div id ="artist_name">
+		M83	
+		</div>
+		</a>
+	</td>
+	</tr>
+
+</table>
+
+<script>
+$(document).ready(function() {
+
+	$( "#browse_button").click(function() {
+	  $("#browse").fadeIn("fast")
+	});
+
+});
+</script>

@@ -1,10 +1,12 @@
 <h1>A Vinyl Store, For You</h1>
 <h2>A place to find and buy vynil records from your favorite artists.</h2>
     <% if current_user %>        
+    
+    	<br>
+          <%= link_to "Load My Custom Vinyl Store", "/store", class: "btn-primary btn-large", onclick:"calltimer()"%>
+          <br><br><small>It takes about <div id="timer">30</div> seconds to load, so please be patient.</small></br>
 
-          <p style="font-size:42px; line-height:50px;">Thanks, you're in. Now visit your Vinyl Store.</p>
-          <br>
-          <%= link_to "Take Me There", "/store", class: "btn btn-info btn-large" %>
+          
           
 
         <% else %>
@@ -225,6 +227,28 @@
 </table>
 
 <script>
+
+var count=29;
+
+function calltimer(){
+	var counter=setInterval(timer, 1000); //1000 will  run it every 1 second	
+}
+
+
+function timer()
+{
+  count=count-1;
+  if (count <= 0)
+  {
+     clearInterval(counter);
+     //counter ended, do something here
+     return;
+  }
+
+  //Do code for showing the number of seconds here
+ document.getElementById("timer").innerHTML=count + " more"; // watch for spelling
+}
+
 $(document).ready(function() {
 
 	$( "#browse_button").click(function() {
@@ -232,4 +256,7 @@ $(document).ready(function() {
 	});
 
 });
+
+
+
 </script>

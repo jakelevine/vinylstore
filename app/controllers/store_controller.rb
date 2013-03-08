@@ -14,6 +14,7 @@ class StoreController < ApplicationController
 		if results[0]
 			@results_array.push(album => [details[0], details[1], results[0][0]])
 		end
+		sleep(1)
 	end 
 
   	#render :json => @results_array

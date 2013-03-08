@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 #!/bin/env ruby
 # encoding: utf-8
+
+require "rexml/document" 
+
 class StoreController < ApplicationController
 
   def storefront

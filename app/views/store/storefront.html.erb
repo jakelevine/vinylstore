@@ -70,21 +70,24 @@
 <% end %>
 	</tr>
 
-<% @results_array[12..14].each do |album| %>
-	<td>
-		<a target = "_blank" href="<%= album.values[0][2] %>">
-		<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
-		<img id="record_img" src="/assets/vinyl-record.png">
-		<br>
-		<div id="album_name">
-		<%= album.keys[0] %>
-		</div>
-		<div id ="artist_name">
-		<%= album.values[0][0] %>	
-		</div>
-		</a>
-	</td>
-<% end %>
+<% if @results_array[12..14] %>
+	<tr>
+	<% @results_array[12..14].each do |album| %>
+		<td>
+			<a target = "_blank" href="<%= album.values[0][2] %>">
+			<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
+			<img id="record_img" src="/assets/vinyl-record.png">
+			<br>
+			<div id="album_name">
+			<%= album.keys[0] %>
+			</div>
+			<div id ="artist_name">
+			<%= album.values[0][0] %>	
+			</div>
+			</a>
+		</td>
+	<% end %>
 	</tr>
+	<% end %>
 
 </table>

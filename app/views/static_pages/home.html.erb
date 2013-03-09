@@ -12,13 +12,15 @@
         <% else %>
         <br>
           <%= link_to "Sign In With Rdio", "/auth/rdio", class: "btn btn-primary btn-large" %>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<button class="btn btn-large" id="browse_button" type="button">Browse Some Records</button>
-
+			&nbsp;&nbsp;<strong>Or</strong>&nbsp;&nbsp;
+		  <%= link_to "Sign In With Last.fm", "/auth/lastfm", class: "btn btn-danger btn-large" %>
         <% end %>
 
+
 <table id="browse" class="table">
+
 <tr>
+
 	<td>
 		<a target = "_blank" href="http://www.amazon.com/Solo-Piano-II-Chilly-Gonzales/dp/B008MQKTAA%3FSubscriptionId%3DAKIAJYE24OHNGKPIYQVA%26tag%3Djakelevineme-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008MQKTAA">
 		<img id="album_img" src="http://cdn3.rd.io/album/7/4/a/00000000001b7a47/3/square-200.jpg" width="200px">

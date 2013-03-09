@@ -13,7 +13,9 @@ gem 'a2z'
 
 gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'omniauth-rdio' 
+gem 'omniauth-lastfm'
 gem 'oauth'
+gem 'rockstar'
 
 group :development do
   gem 'sqlite3', '1.3.5'

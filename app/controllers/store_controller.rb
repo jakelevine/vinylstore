@@ -6,8 +6,8 @@ require "rexml/document"
 class StoreController < ApplicationController
 
   def storefront
-  	#response = User.prepare_access_token(current_user)		
-	@response = User.get_rdio(current_user)
+  	
+	@response = User.get_albums(current_user)
 	
 	@results_array = Array.new
 
@@ -29,7 +29,8 @@ class StoreController < ApplicationController
   end
   def search
   	
-  	@results = User.amazon_lookup("Era Extraña Neon Indian")
-  	render :json => @results
+  	#@results = User.amazon_lookup("Era Extraña Neon Indian")
+  	@response = User.get_rdio(current_user)
+  	render :json => @response
   end 
 end

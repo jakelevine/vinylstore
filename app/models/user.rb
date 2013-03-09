@@ -6,8 +6,11 @@ class User < ActiveRecord::Base
 	require "#{Rails.root}/lib/rdio-simple/rdio"
 	require "#{Rails.root}/lib/rdio-simple/om"
 
-	API_KEY = ENV['RDIO_KEY']
-	API_SECRET = ENV['RDIO_SECRET']
+	RDIO_API_KEY = ENV['RDIO_KEY']
+	RDIO_API_SECRET = ENV['RDIO_SECRET']
+	LASTFM_API_KEY = ENV['LASTFM_KEY']
+	LASTFM_API_SECRET = ENV['LASTFM_SECRET']
+
 
 	AMZN_KEY = ENV['AMZN_KEY']
 	AMZN_SECRET = ENV['AMZN_SECRET']
@@ -27,21 +30,34 @@ class User < ActiveRecord::Base
 		@items.each {|item| yield item}
 	end
 
-	def self.get_rdio(user)
-		consumer = OAuth::Consumer.new(API_KEY, API_SECRET, {
-			:site => "http://api.rdio.com/"
-			})
-
-		access_token = OAuth::AccessToken.new(consumer, user.token, user.secret )
-
-		rdio = Rdio.new(consumer, access_token)
-		heavyRotation = rdio.call('getHeavyRotation', {'user' => user.uid, 'type' => 'albums', 'limit' => '20'})["result"]
-
+	def self.get_albums(user)
 		albumHash = Hash.new
 
-		heavyRotation.each do |album|
-			albumHash[album["name"]]= [album["artist"], album["icon"]]
-		end 
+		if user.provider == "rdio"
+			consumer = OAuth::Consumer.new(RDIO_API_KEY, RDIO_API_SECRET, {
+				:site => "http://api.rdio.com/"
+				})
+
+			access_token = OAuth::AccessToken.new(consumer, user.token, user.secret )
+
+			rdio = Rdio.new(consumer, access_token)
+			heavyRotation = rdio.call('getHeavyRotation', {'user' => user.uid, 'type' => 'albums', 'limit' => '20'})["result"]
+
+
+			heavyRotation.each do |album|
+				albumHash[album["name"]]= [album["artist"], album["icon"]]
+			end
+		else
+			Rockstar.lastfm = {:api_key => LASTFM_API_KEY, :api_secret => LASTFM_API_SECRET}
+			username = user.uid
+			user = Rockstar::User.new(username)
+			top_albums = user.top_albums
+
+			top_albums.first(20).each do |album|
+				albumHash[album.name]= [album.artist, album.images["extralarge"]]
+			end
+
+		end
 
 		return albumHash
 	end

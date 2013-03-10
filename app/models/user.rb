@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 			access_token = OAuth::AccessToken.new(consumer, user.token, user.secret )
 
 			rdio = Rdio.new(consumer, access_token)
-			heavyRotation = rdio.call('getHeavyRotation', {'user' => user.uid, 'type' => 'albums', 'limit' => '6'})["result"]
+			heavyRotation = rdio.call('getHeavyRotation', {'user' => user.uid, 'type' => 'albums', 'limit' => '20'})["result"]
 
 
 			heavyRotation.each do |album|

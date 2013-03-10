@@ -59,6 +59,9 @@ class User < ActiveRecord::Base
 
 		end
 
+		user.albumHash = albumHash
+		user.save
+
 		return albumHash
 	end
 

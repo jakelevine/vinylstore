@@ -5,7 +5,7 @@ VinylApp::Application.routes.draw do
   root to: 'static_pages#home'
   match "/store" => "store#storefront"
   match "/results" => "store#search"
-  match "/show" => "store#show"
+  #match "/show" => "store#show"
 
 
   match "/auth/:provider/callback" => "sessions#create"

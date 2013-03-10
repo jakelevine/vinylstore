@@ -48,8 +48,8 @@ class User < ActiveRecord::Base
 		else
 			Rockstar.lastfm = {:api_key => LASTFM_API_KEY, :api_secret => LASTFM_API_SECRET}
 			username = user.uid
-			user = Rockstar::User.new(username)
-			top_albums = user.top_albums
+			new_user = Rockstar::User.new(username)
+			top_albums = new_user.top_albums
 
 			top_albums.first(20).each do |album|
 				albumHash[album.name]= [album.artist, album.images["extralarge"]]

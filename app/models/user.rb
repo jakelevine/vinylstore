@@ -88,6 +88,28 @@ class User < ActiveRecord::Base
 	end 
 
 
+	def self.get_albums_test(userid, token, secret)
+		albumHash = Hash.new
+
+		
+			consumer = OAuth::Consumer.new(RDIO_API_KEY, RDIO_API_SECRET, {
+				:site => "http://api.rdio.com/"
+				})
+
+			access_token = OAuth::AccessToken.new(consumer, token, secret )
+
+			rdio = Rdio.new(consumer, access_token)
+			heavyRotation = rdio.call('getHeavyRotation', {'user' => userid, 'type' => 'albums', 'limit' => '20'})["result"]
+
+
+			heavyRotation.each do |album|
+				albumHash[album["name"]]= [album["artist"], album["icon"]]
+			end
+		
+
+		
+		return heavyRotation
+	end
 
 
 end

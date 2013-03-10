@@ -4,6 +4,7 @@
 require "rexml/document" 
 
 class StoreController < ApplicationController
+	
 
   def storefront
   	
@@ -31,6 +32,15 @@ class StoreController < ApplicationController
   	
   	#@results = User.amazon_lookup("Era Extraña Neon Indian")
   	@response = User.get_albums_test("s2466093", "epkxvjaqptmgn752e5m7xjxadkxk4d5x4cze53zhdj2u873tmszwxwdj6aycgtap", "keuhnGyX4pjs")
-  	render :json => @response
+  	#render :json => @response
   end 
+
+  def show
+    @user = User.find(params[:key])
+    render :json => @user
+  end
+
+    
+
+
 end

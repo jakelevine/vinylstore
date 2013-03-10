@@ -26,9 +26,7 @@ class User < ActiveRecord::Base
 	    user.secret = auth["credentials"]["secret"]
 	  	end
 	end
-	def each
-		@items.each {|item| yield item}
-	end
+	
 
 	def self.get_albums(user)
 		albumHash = Hash.new
@@ -41,7 +39,7 @@ class User < ActiveRecord::Base
 			access_token = OAuth::AccessToken.new(consumer, user.token, user.secret )
 
 			rdio = Rdio.new(consumer, access_token)
-			heavyRotation = rdio.call('getHeavyRotation', {'user' => user.uid, 'type' => 'albums', 'limit' => '20'})["result"]
+			heavyRotation = rdio.call('getHeavyRotation', {'user' => user.uid, 'type' => 'albums', 'limit' => '6'})["result"]
 
 
 			heavyRotation.each do |album|

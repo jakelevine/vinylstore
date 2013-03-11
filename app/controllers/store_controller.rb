@@ -9,20 +9,8 @@ class StoreController < ApplicationController
   def storefront
   	
 	@response = User.get_albums(current_user)
+	@results_array = User.get_recs(@response)
 	
-	@results_array = Array.new
-
-	
-	@response.each do |album, details|
-		album_name = album
-		artist_name = details[0]
-		results = User.amazon_lookup(album_name+" "+artist_name)
-		if results[0]
-			@results_array.push(album => [details[0], details[1], results[0][0]])
-		end
-		sleep(1)
-	end 
-
   	#render :json => @results_array
   	return @results_array
   	
@@ -36,8 +24,16 @@ class StoreController < ApplicationController
   end 
 
   def show
-    @user = User.find(params[:key])
-    render :json => @user
+
+    @user = User.find_by_shortname(params[:shortname])
+
+    @results_array = Rails.cache.fetch(@user.shortname) {
+        @response = User.get_albums(@user)
+        @results_array = User.get_recs(@response)
+	   }
+  	#render :json => @results_array
+  	return @results_array
+
   end
 
     

@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 	    user.provider = auth["provider"]
 	    user.uid = auth["uid"]
 	    user.name = auth["info"]["name"]
+	    user.shortname = auth["info"]["name"].gsub(/\s+/, "").downcase
 	    user.key = auth["extra"]["raw_info"]["key"]
 	    user.token = auth["credentials"]["token"]
 	    user.secret = auth["credentials"]["secret"]
@@ -64,7 +65,9 @@ class User < ActiveRecord::Base
 	end
 
 	def self.amazon_lookup(album)
+
 		client = A2z::Client.new(key: AMZN_KEY, secret: AMZN_SECRET, tag: AMZN_TAG)
+
 		response = client.item_search do
              category 'Music'
              keywords ""+album+" vinyl"
@@ -79,11 +82,27 @@ class User < ActiveRecord::Base
         	end
         end
 
-
-
         return vinylArray
 
 	end 
+
+	def self.get_recs(album_array)
+
+		@results_array = Array.new
+
+		album_array.each do |album, details|
+			album_name = album
+			artist_name = details[0]
+			results = User.amazon_lookup(album_name+" "+artist_name)
+				if results[0]
+					@results_array.push(album => [details[0], details[1], results[0][0]])
+				end
+		sleep(1)
+		end 
+
+		return @results_array
+
+	end
 
 
 	def self.get_albums_test(userid, token, secret)

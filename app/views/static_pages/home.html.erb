@@ -3,7 +3,7 @@
     <% if current_user %>        
     
     	<br>
-          <%= link_to "Load My Custom Vinyl Store", "/store", class: "btn-primary btn-large", onclick:"calltimer()"%>
+          <%= link_to "Load My Custom Vinyl Store", "/u/"+current_user.shortname, class: "btn-primary btn-large", onclick:"calltimer()"%>
           <br><br><small>It takes about <div id="timer">30</div> seconds to load, so please be patient.</small></br>
 
           

@@ -1,9 +1,9 @@
 <h1>A Vinyl Store, For You</h1>
 <h2>Send your friends to <a href="http://<%= request.host+request.fullpath %>"><%= request.host+request.fullpath %></a></h2>
 <table class="table">
-<% if @results_array.first(3) %>		
+<% if @results.first(3) %>		
 <tr>
-<% @results_array.first(3).each do |album| %>
+<% @results.first(3).each do |album| %>
 	<td>
 		<a target = "_blank" href="<%= album.values[0][2] %>">
 		<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
@@ -21,9 +21,9 @@
 </tr>
 <% end %>
 
-<% if @results_array[3..5] %>		
+<% if @results[3..5] %>		
 <tr>
-<% @results_array[3..5].each do |album| %>
+<% @results[3..5].each do |album| %>
 	<td>
 		<a target = "_blank" href="<%= album.values[0][2] %>">
 		<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
@@ -42,9 +42,9 @@
 <% end %>
 
 
-<% if @results_array[6..8] %>		
+<% if @results[6..8] %>		
 	<tr>
-<% @results_array[6..8].each do |album| %>
+<% @results[6..8].each do |album| %>
 	<td>
 		<a target = "_blank" href="<%= album.values[0][2] %>">
 		<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
@@ -62,9 +62,9 @@
 	</tr>
 <% end %>
 
-<% if @results_array[9..11] %>
+<% if @results[9..11] %>
 	<tr>
-<% @results_array[9..11].each do |album| %>
+<% @results[9..11].each do |album| %>
 	<td>
 		<a target = "_blank" href="<%= album.values[0][2] %>">
 		<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
@@ -82,9 +82,9 @@
 	</tr>
 <% end %>
 
-<% if @results_array[12..14] %>
+<% if @results[12..14] %>
 	<tr>
-	<% @results_array[12..14].each do |album| %>
+	<% @results[12..14].each do |album| %>
 		<td>
 			<a target = "_blank" href="<%= album.values[0][2] %>">
 			<img id="album_img" src="<%= album.values[0][1] %>" width="200px">

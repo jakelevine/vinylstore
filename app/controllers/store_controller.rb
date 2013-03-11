@@ -25,14 +25,13 @@ class StoreController < ApplicationController
 
   def show
 
-    @user = User.find_by_shortname(params[:shortname])
-
-    @results_array = Rails.cache.fetch(@user.shortname) {
-        @response = User.get_albums(@user)
-        @results_array = User.get_recs(@response)
-	   }
-  	#render :json => @results_array
-  	return @results_array
+    @results = Rails.cache.fetch("#{params[:shortname]}") do
+        @user = User.find_by_shortname(params[:shortname])
+        @response = User.get_albums(@user)    
+        @results = User.get_recs(@response)
+	   end
+  	#render :json => @results
+  	return @results
 
   end
 

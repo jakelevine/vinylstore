@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
         vinylArray = Array.new
         response.items.each do |item|
         	if item.binding == "Vinyl"
-        		vinylArray.push([ item.detail_page_url, item["title"], item["artist"]]  )
+        		vinylArray.push([ item.detail_page_url[0..-1], item["title"], item["artist"]]  )
         	end
         end
 
@@ -89,15 +89,21 @@ class User < ActiveRecord::Base
 	def self.get_recs(album_array)
 
 		@results_array = Array.new
+		results = Hash.new
 
 		album_array.each do |album, details|
+			amzn_link = ""
 			album_name = album
 			artist_name = details[0]
 			results = User.amazon_lookup(album_name+" "+artist_name)
-				if results[0]
-					@results_array.push(album => [details[0], details[1], results[0][0]])
-				end
-		sleep(1)
+			
+			if results[0]
+				amzn_link = results[0][0]
+				details_array = [details[0], details[1], amzn_link]
+				@results_array.push(album => details_array)
+			end
+			
+			sleep(1)
 		end 
 
 		return @results_array

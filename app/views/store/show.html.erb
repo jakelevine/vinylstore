@@ -1,5 +1,13 @@
 <h1>A Vinyl Store, For You</h1>
-<h2>Send your friends to <a href="http://<%= request.host+request.fullpath %>"><%= request.host+request.fullpath %></a></h2>
+<h2>A place to find and buy vinyl records from your favorite artists.</h2>
+
+	<div class="custom-button" id="tw-button">
+	  <a href="https://twitter.com/share?url=http://<%= request.host+request.fullpath %>&text=Check out my personal Vinyl Store via @jrlevine" target="_blank">Share on Twitter</a>
+	</div>
+	<div class="custom-button" id="fb-button">
+	<a href="https://www.facebook.com/dialog/feed?display=page&amp;app_id=149668511862894&amp;link=http://<%= request.host+request.fullpath %>&amp;redirect_uri=http://<%= request.host+request.fullpath %>&amp;name=Check out my personal Vinyl Store&amp;caption=A place to find and buy vinyl records from your favorite artists." class="btn-share-story-link share-story-link" target="_blank">Share on Facebook</a>
+	</div>
+
 <table class="table">
 <% if @results.first(3) %>		
 <tr>

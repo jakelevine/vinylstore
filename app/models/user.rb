@@ -19,12 +19,21 @@ class User < ActiveRecord::Base
 	def self.create_with_omniauth(auth)
 	  create! do |user|
 	    user.provider = auth["provider"]
-	    user.uid = auth["uid"]
-	    user.name = auth["info"]["name"]
-	    user.shortname = auth["info"]["name"].gsub(/\s+/, "").downcase
-	    user.key = auth["extra"]["raw_info"]["key"]
-	    user.token = auth["credentials"]["token"]
-	    user.secret = auth["credentials"]["secret"]
+	    if user.provider = "rdio"
+		    user.uid = auth["uid"]
+		    user.name = auth["info"]["name"]
+		    user.shortname = auth["info"]["name"].gsub(/\s+/, "").downcase
+		    user.key = auth["extra"]["raw_info"]["key"]
+		    user.token = auth["credentials"]["token"]
+		    user.secret = auth["credentials"]["secret"]
+		else
+			user.uid = auth["uid"]
+		    user.name = auth["uid"]
+		    user.shortname = auth["uid"].gsub(/\s+/, "").downcase
+		    user.key = auth["extra"]["raw_info"]["key"]
+		    user.token = auth["credentials"]["token"]
+		    user.secret = auth["credentials"]["secret"]
+		end
 	  	end
 	end
 	

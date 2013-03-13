@@ -33,8 +33,8 @@ class User < ActiveRecord::Base
 		    user.key = auth["extra"]["raw_info"]["key"]
 		    user.token = auth["credentials"]["token"]
 		    user.secret = auth["credentials"]["secret"]
-		
 	  	end
+	  end
 	end
 	
 

@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
 		    user.secret = auth["credentials"]["secret"]
 		else
 			user.uid = auth["uid"]
-		    user.name = auth["uid"]
-		    user.shortname = auth["uid"].gsub(/\s+/, "").downcase
+		    user.name = user.uid
+		    user.shortname = user.uid.gsub(/\s+/, "").downcase
 		    user.key = auth["extra"]["raw_info"]["key"]
 		    user.token = auth["credentials"]["token"]
 		    user.secret = auth["credentials"]["secret"]

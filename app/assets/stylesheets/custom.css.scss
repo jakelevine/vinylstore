@@ -5,8 +5,13 @@ a{
 }
 a:hover{
 	color:black;
+	text-decoration:underline;
+}
+
+.btn-primary:hover{
 	text-decoration:none;
 }
+
 
 body{
 	font-family:"Helvetica Neue";
@@ -73,16 +78,17 @@ h2{
 #record_img{
 	z-index: -1;
 	margin-left: -122px;
-	position: absolute;
-	
-}
-#album_img{
-	z-index: 1;
-	box-shadow: 1px 1px 6px #aaaaaa;
+	position: absolute;	
 }
 
-#browse{
+#album_img{
+	z-index: 1;
+	box-shadow: 1px 1px 4px black;
 }
+
+
+
+
 #timer{
 	display:inline;
 }

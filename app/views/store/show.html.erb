@@ -14,15 +14,16 @@
 <% @results.first(3).each do |album| %>
 	<td>
 		<a target = "_blank" href="<%= album.values[0][2] %>">
+	<div>
 		<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
-		<img id="record_img" src="/assets/vinyl-record.png">
-		<br>
+		<img id="record_img" src="/assets/vinyl-record.png">	
 		<div id="album_name">
 		<%= album.keys[0] %>
 		</div>
 		<div id ="artist_name">
 		<%= album.values[0][0] %>	
 		</div>
+	</div>
 		</a>
 	</td>
 <% end %>
@@ -34,15 +35,16 @@
 <% @results[3..5].each do |album| %>
 	<td>
 		<a target = "_blank" href="<%= album.values[0][2] %>">
+	<div>
 		<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
-		<img id="record_img" src="/assets/vinyl-record.png">
-		<br>
+		<img id="record_img" src="/assets/vinyl-record.png">	
 		<div id="album_name">
 		<%= album.keys[0] %>
 		</div>
 		<div id ="artist_name">
 		<%= album.values[0][0] %>	
 		</div>
+	</div>
 		</a>
 	</td>
 <% end %>
@@ -55,15 +57,16 @@
 <% @results[6..8].each do |album| %>
 	<td>
 		<a target = "_blank" href="<%= album.values[0][2] %>">
+	<div>
 		<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
-		<img id="record_img" src="/assets/vinyl-record.png">
-		<br>
+		<img id="record_img" src="/assets/vinyl-record.png">	
 		<div id="album_name">
 		<%= album.keys[0] %>
 		</div>
 		<div id ="artist_name">
 		<%= album.values[0][0] %>	
 		</div>
+	</div>
 		</a>
 	</td>
 <% end %>
@@ -75,15 +78,16 @@
 <% @results[9..11].each do |album| %>
 	<td>
 		<a target = "_blank" href="<%= album.values[0][2] %>">
+	<div>
 		<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
-		<img id="record_img" src="/assets/vinyl-record.png">
-		<br>
+		<img id="record_img" src="/assets/vinyl-record.png">	
 		<div id="album_name">
 		<%= album.keys[0] %>
 		</div>
 		<div id ="artist_name">
 		<%= album.values[0][0] %>	
 		</div>
+	</div>
 		</a>
 	</td>
 <% end %>
@@ -95,15 +99,16 @@
 	<% @results[12..14].each do |album| %>
 		<td>
 			<a target = "_blank" href="<%= album.values[0][2] %>">
+		<div>
 			<img id="album_img" src="<%= album.values[0][1] %>" width="200px">
-			<img id="record_img" src="/assets/vinyl-record.png">
-			<br>
+			<img id="record_img" src="/assets/vinyl-record.png">		
 			<div id="album_name">
 			<%= album.keys[0] %>
 			</div>
 			<div id ="artist_name">
 			<%= album.values[0][0] %>	
 			</div>
+		</div>
 			</a>
 		</td>
 	<% end %>

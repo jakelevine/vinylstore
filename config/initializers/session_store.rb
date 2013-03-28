@@ -7,4 +7,4 @@ VinylApp::Application.config.session_store :cookie_store, key: '_vinyl_app_sessi
 # (create the session table with "rails generate session_migration")
 # VinylApp::Application.config.session_store :active_record_store
 
-Rails.application.config.session_store ActionDispatch::Session::CacheStore, :expire_after => 60.minutes
+Rails.application.config.session_store ActionDispatch::Session::CacheStore, :expire_after => 7.days

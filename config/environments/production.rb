@@ -9,7 +9,7 @@ VinylApp::Application.configure do
   config.consider_all_requests_local       = false
   #config.action_controller.perform_caching = true
 
-  config.cache_store = :dalli_store
+  config.cache_store = :dalli_store, nil, { :expires_in => 7.days }
 
 
   # Disable Rails's static asset server (Apache or nginx will already do this)

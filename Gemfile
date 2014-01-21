@@ -39,6 +39,8 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
+gem 'memcachier'
+
 
 
 # To use ActiveModel has_secure_password
